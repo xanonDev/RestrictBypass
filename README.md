@@ -1,17 +1,25 @@
 # RestrictBypass
-website written in python using Flask to bypass restrictions such as internet provider or parental controls etc.
-##how to use 
-1. go to <a href="restrictbypass.xanondev.repl.co">restrictbypass.xanondev.repl.co</a>
-2. paste the link to the website you want to open into the text field, e.g. https://www.youtube.com
-3. click bypass
-alternative you can import this repository to your repo on replit
-##how it's working?
-a python script hosted on replica (or on your server) downloads the website on the server side
-then returns it as a coded js script to the user
-the js script is coded to bypass filtering by words or content
-therefore, the entire website is built from a client-side script
-##warning
-some pages may not display correctly
-I'm working to fix it
-and using it may not please your boss or teacher or internet provider
-you use at your own risk
+
+RestrictBypass is a Python-based website using Flask, designed to bypass restrictions such as those imposed by internet providers or parental controls.
+
+## How to Use
+
+1. Visit the RestrictBypass website: [restrictbypass.xanondev.repl.co](https://restrictbypass.xanondev.repl.co)
+2. Paste the link to the website you want to open into the provided text field (e.g., https://www.youtube.com).
+3. Click on the "Bypass" button.
+
+Alternatively, you can import this repository into your own Replit workspace.
+
+## How it Works
+
+RestrictBypass operates by following these steps:
+
+1. A Python script hosted on Replit (or on your server) downloads the target website on the server-side.
+2. It then transforms the website into a JavaScript script.
+3. The generated JavaScript script is coded to bypass filtering based on words or content.
+4. As a result, the entire website is reconstructed on the client-side, allowing it to bypass restrictions.
+
+## Warning
+
+- **Incomplete Rendering:** Some pages may not display correctly when accessed through RestrictBypass. Efforts are ongoing to improve compatibility.
+- **Use at Your Own Risk:** Using this tool may not be condoned by your employer, teacher, or internet service provider. Please be aware that using it comes with potential consequences, and you assume all risks associated with its use.
