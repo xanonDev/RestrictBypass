@@ -10,9 +10,12 @@ app = Flask(__name__)
 
 @app.route('/bypass')
 def bypass():
+  headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)       AppleWebKit/537.36 (KHTML, like Gecko) Firefox/100.0'
+  }
   link = request.args.get("link")
   link = base64.b64decode(link).decode('utf-8')
-  raw_content = requests.get(link)
+  raw_content = requests.get(link, headers=headers)
   contentType = raw_content.headers.get('content-type', '').lower()
   if 'text/html' in contentType:
     soup = BeautifulSoup(raw_content.text, 'html.parser')
@@ -38,12 +41,12 @@ def bypass():
       a_tag['href'] = encodedlink
     scripts = soup.find_all('script', src=True)
     for script in scripts:
-      scriptCode = requests.get(script['src'])
+      scriptCode = requests.get(script['src'], headers=headers)
       del script['src']
       script.string = scriptCode.text
     styles = soup.find_all('link', rel="stylesheet")
     for style in styles:
-      styleCode = requests.get(style['href'])
+      styleCode = requests.get(style['href'], headers=headers)
       styleTag = soup.new_tag('style')
       styleTag.string = styleCode.text
       style.replace_with(styleTag)
