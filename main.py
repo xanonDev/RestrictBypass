@@ -8,14 +8,6 @@ import os
 app = Flask(__name__)
 
 
-def is_html(string):
-  html_tags = ["<html", "<head", "<body", "<div", "<p", "<a", "<span"]
-  for tag in html_tags:
-    if tag in string:
-      return True
-  return False
-
-
 @app.route('/bypass')
 def bypass():
   link = request.args.get("link")
@@ -44,6 +36,17 @@ def bypass():
       encodedlink = encodedlink.decode('utf-8')
       encodedlink = f'/bypass?link={encodedlink}'
       a_tag['href'] = encodedlink
+    scripts = soup.find_all('script', src=True)
+    for script in scripts:
+      scriptCode = requests.get(script['src'])
+      del script['src']
+      script.string = scriptCode.text
+    styles = soup.find_all('link', rel="stylesheet")
+    for style in styles:
+      styleCode = requests.get(style['href'])
+      styleTag = soup.new_tag('style')
+      styleTag.string = styleCode.text
+      style.replace_with(styleTag)
     content = base64.b64encode(soup.prettify().encode('utf-8'))
     webchanger = '''
         <input id="link"></input>
