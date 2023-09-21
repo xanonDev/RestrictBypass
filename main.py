@@ -50,6 +50,7 @@ def bypass():
       styleTag = soup.new_tag('style')
       styleTag.string = styleCode.text
       style.replace_with(styleTag)
+      
     content = base64.b64encode(soup.prettify().encode('utf-8'))
     webchanger = '''
         <input id="link"></input>
@@ -62,6 +63,11 @@ def bypass():
           window.location.href = "/bypass?link=" + data;
       });
       </script>
+    '''
+    evalscripts = '''
+      scripts.forEach((script) => {
+        eval(script.textContent);
+      });
     '''
     content = f'''
       <html>
@@ -77,6 +83,8 @@ def bypass():
       let content = "{content.decode('utf-8')}";
       content = atob(content);
       frame.innerHTML = content;
+      const scripts = frame.querySelectorAll("script");
+      {evalscripts}
       </script>
       </body>
       </html>
