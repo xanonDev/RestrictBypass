@@ -119,6 +119,12 @@ def index():
     </body>
     </html>
   '''
+@app.route("/imageProxy")
+def imageProxy():
+  url = request.args.get('url', '')
+  response = requests.get(url)
+  headers = {'Content-Type': response.headers['Content-Type']}
+  return Response(response.content, headers=headers)
 
 
 app.run(host='0.0.0.0', port=81)
