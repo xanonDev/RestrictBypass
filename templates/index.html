@@ -49,6 +49,11 @@
         data = btoa(link.value)
         window.location.href = "/bypass?link=" + data;
     });
+    link.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                button.click();
+            }
+        });
     </script>
     <p id="credits">powered by <a href="https://github.com/xanonDev/RestrictBypass" target="_blank">https://github.com/xanonDev/RestrictBypass</a></p>
     </body>
