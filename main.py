@@ -43,7 +43,7 @@ def bypass():
       src = imgTag['src']
       encodedlink = base64.b64encode(src.encode('utf-8'))
       encodedlink = encodedlink.decode('utf-8')
-      bypassLink = f'/imageProxy?url={encodedlink}'
+      bypassLink = f'/fileProxy?url={encodedlink}'
       imgTag['src'] = bypassLink
     scripts = soup.find_all('script', src=True)
     for script in scripts:
@@ -52,10 +52,11 @@ def bypass():
       script.string = scriptCode.text
     styles = soup.find_all('link', rel="stylesheet")
     for style in styles:
-      styleCode = requests.get(style['href'], headers=headers)
-      styleTag = soup.new_tag('style')
-      styleTag.string = styleCode.text
-      style.replace_with(styleTag)
+      href = style['href']
+      encodedlink = base64.b64encode(href.encode('utf-8'))
+      encodedlink = encodedlink.decode('utf-8')
+      bypassLink = f'/fileProxy?url={encodedlink}'
+      style['href'] = bypassLink
       
     content = base64.b64encode(soup.prettify().encode('utf-8'))
     webchanger = '''
@@ -125,7 +126,7 @@ def index():
     </body>
     </html>
   '''
-@app.route("/imageProxy")
+@app.route("/fileProxy")
 def imageProxy():
   url = request.args.get('url', '')
   url = base64.b64decode(url).decode('utf-8')
