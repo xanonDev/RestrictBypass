@@ -1,0 +1,51 @@
+  <html>
+    <head>
+    <meta charset="UTF-8">
+    </head>
+    <body>
+    <style>
+      body {
+        background: rgb(251,63,239);
+        background: linear-gradient(294deg, rgba(251,63,239,1) 5%,   rgba(255,0,101,1) 49%, rgba(254,33,206,1) 90%);
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Roboto Condensed;
+      }
+      #link {
+        width: 90%;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.5);
+      }
+      #submit {
+        width: 40rem;
+        height: 14rem;
+        font-size: 100px
+        background: rgb(251,63,239, 0.5);
+        background: linear-gradient(294deg, rgba(251,63,239,1) 5%,   rgba(255,0,101,1) 49%, rgba(254,33,206,1) 90%);
+        margin-bottom: 2%;
+        font-size: 50px;
+        color: red;
+        text-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black;
+}
+      p {
+        font-size: 100px;
+        color: red;
+        text-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black;
+        margin-top: 3%;
+      }
+    </style>
+    <p>RestrictBypass</p>
+    <input id="link" placeholder="enter url to bypass"></input>
+    <button id="submit">Bypass Restriction</button>
+    <script>
+    const button = document.getElementById("submit");
+    const link = document.getElementById("link");
+    button.addEventListener("click", function() {
+        data = btoa(link.value)
+        window.location.href = "/bypass?link=" + data;
+    });
+    </script>
+    </body>
+    </html>
