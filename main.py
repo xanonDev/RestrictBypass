@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask, request, Response, render_template
 import requests
 import base64
 from bs4 import BeautifulSoup
@@ -107,25 +107,7 @@ def bypass():
 
 @app.route("/")
 def index():
-  return '''
-  <html>
-    <head>
-    <meta charset="UTF-8">
-    </head>
-    <body>
-    <input id="link"></input>
-    <button id="submit">bypass</button>
-    <script>
-    const button = document.getElementById("submit");
-    const link = document.getElementById("link");
-    button.addEventListener("click", function() {
-        data = btoa(link.value)
-        window.location.href = "/bypass?link=" + data;
-    });
-    </script>
-    </body>
-    </html>
-  '''
+  return render_template('index.html')
 @app.route("/fileProxy")
 def imageProxy():
   url = request.args.get('url', '')
