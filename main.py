@@ -15,6 +15,11 @@ def bypass():
   }
   link = request.args.get("link")
   link = base64.b64decode(link).decode('utf-8')
+  parsed_url = urlparse(link)
+  if parsed_url.scheme == 'http' or parsed_url.scheme == 'https':
+    pass 
+  else:
+    link = f'https://{link}'
   raw_content = requests.get(link, headers=headers)
   contentType = raw_content.headers.get('content-type', '').lower()
   if 'text/html' in contentType:
