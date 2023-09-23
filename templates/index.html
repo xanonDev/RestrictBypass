@@ -1,64 +1,91 @@
-  <html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    </head>
-    <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restrict Bypass</title>
     <style>
-      body {
-        background: rgb(251,63,239);
-        background: linear-gradient(294deg, rgba(251,63,239,1) 5%,   rgba(255,0,101,1) 49%, rgba(254,33,206,1) 90%);
-        display: grid;
-        place-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: Roboto Condensed;
-      }
-      #link {
-        width: 90%;
-        height: 50px;
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 13px;
-      }
-      #submit {
-        width: 40rem;
-        height: 14rem;
-        font-size: 100px
-        background: rgb(251,63,239, 0.5);
-        background: linear-gradient(294deg, rgba(251,63,239,1) 5%,   rgba(255,0,101,1) 49%, rgba(254,33,206,1) 90%);
-        font-size: 50px;
-        color: red;
-        text-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black;
-}
-      p {
-        font-size: 100px;
-        color: red;
-        text-shadow: 0 0 10px black, 0 0 20px black, 0 0 30px black;
-        margin-top: 3%;
-      }
-      #credits {
-        color: black;
-        font-size: 12px;
-      }
-      a {
-        color: black;
-      }
+        body {
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #link {
+            width: 300px;
+            height: 40px;
+            border: none;
+            border-bottom: 2px solid #007BFF;
+            font-size: 16px;
+            padding: 5px;
+            margin: 10px 0;
+        }
+
+        #submit {
+            width: 150px;
+            height: 40px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit:hover {
+            background: #0056b3;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #credits {
+            color: #888;
+            font-size: 12px;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
     </style>
-    <p>RestrictBypass</p>
-    <input id="link" placeholder="enter url to bypass"></input>
-    <button id="submit">Bypass Restriction</button>
+</head>
+<body>
+    <div id="container">
+        <h1>Restrict Bypass</h1>
+        <input id="link" placeholder="Enter URL to bypass"></input>
+        <button id="submit">Bypass Restriction</button>
+        <p id="credits">Powered by <a href="https://github.com/xanonDev/RestrictBypass" target="_blank">Restrict Bypass</a></p>
+    </div>
     <script>
-    const button = document.getElementById("submit");
-    const link = document.getElementById("link");
-    button.addEventListener("click", function() {
-        data = btoa(link.value)
-        window.location.href = "/bypass?link=" + data;
-    });
-    link.addEventListener("keyup", function(event) {
+        const button = document.getElementById("submit");
+        const link = document.getElementById("link");
+        button.addEventListener("click", function () {
+            data = btoa(link.value);
+            window.location.href = "/bypass?link=" + data;
+        });
+        link.addEventListener("keyup", function (event) {
             if (event.keyCode === 13) {
                 button.click();
             }
         });
     </script>
-    <p id="credits">powered by <a href="https://github.com/xanonDev/RestrictBypass" target="_blank">https://github.com/xanonDev/RestrictBypass</a></p>
-    </body>
-    </html>
+</body>
+</html>
