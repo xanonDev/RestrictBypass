@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "RestrictBypass",
+    "version": "0.1",
+    "description": "Bypass local restriction, pornblockers etc, author x__anon",
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "activeTab",
+        "<all_urls>"
+    ],
+    "action": {
+        "default_title": "Click Bypass restriction",
+        "default_popup": "popup.html"
+    }
+}
