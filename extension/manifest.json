@@ -7,10 +7,16 @@
         "activeTab",
         "tabs",
         "activeTab",
-        "<all_urls>"
+        "<all_urls>",
+        "storage"
     ],
     "action": {
         "default_title": "Click Bypass restriction",
         "default_popup": "popup.html"
-    }
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "run_at": "document_start"
+    }]
 }
