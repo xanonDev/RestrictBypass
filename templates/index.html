@@ -155,6 +155,13 @@
         function closeHowToUseOverlay() {
             howToUseOverlay.style.display = "none";
         }
+        let url = new URL(window.location.href);
+        errorUrl = url.searchParams.get("error");
+        if(errorUrl) {
+          howToUseOverlay.style.display = "none";
+          link.style = "border-bottom: 2px solid red;"
+          link.placeholder = errorUrl
+        }
     </script>
 </body>
 </html>
