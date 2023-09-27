@@ -14,7 +14,6 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
     const button = document.getElementById("submit");
     server = document.getElementById("server");
     AutoCheck = document.getElementById("automode");
-    manual = document.getElementById("manual");
     button.addEventListener("click", function() {
         data = btoa(document.getElementById("link").value)
         chrome.tabs.create({ url: server.value + "/bypass?link=" + data });
@@ -28,10 +27,10 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         } else {
             if (result.automode === true) {
                 AutoCheck.checked = true;
-                manual.style.display = 'none';
+                button.style.display = 'none';
             }
             if (result.automode === false) {
-                manual.style.display = 'block';
+                button.style.display = 'block';
             }
 
         }
@@ -48,10 +47,10 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         }
         chrome.storage.sync.set(dataToChange, function() {});
         if (AutoCheck.checked) {
-            manual.style.display = 'none';
+            button.style.display = 'none';
         }
         if (!AutoCheck.checked) {
-            manual.style.display = 'block';
+            button.style.display = 'block';
         }
     });
 });
