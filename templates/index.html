@@ -163,10 +163,12 @@
         }
         let url = new URL(window.location.href);
         errorUrl = url.searchParams.get("error");
+        errorDet = url.searchParams.get("errorDet");
         if(errorUrl) {
           howToUseOverlay.style.display = "none";
           link.style = "border: 2px solid red;"
           errorBox.textContent = errorUrl;
+          console.error(errorDet)
         }
     </script>
 </body>
