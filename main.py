@@ -109,8 +109,8 @@ def bypass():
       response = Response(raw_content.content, content_type=contentType)
       response.headers['Content-Disposition'] = f'attachment; filename={filename}'
       return response
-  except:
-      return redirect(url_for('index', error="error occurred while trying to proxy"))
+  except Exception as e:
+      return redirect(url_for('index', error=f"{e.__class__.__name__} occurred while trying to proxy, error details in console", errorDet=e))
 
 
 @app.route("/")
