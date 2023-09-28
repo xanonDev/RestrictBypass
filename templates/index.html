@@ -114,10 +114,15 @@
         .overlay button:hover {
             background-color: #0056b3;
         }
+        #error {
+          background-color: red;
+          color: black;
+        }
     </style>
 </head>
 <body>
     <div id="container">
+        <p id="error"></p>
         <h1>Restrict Bypass</h1>
         <input id="link" placeholder="Enter URL to bypass"></input>
         <button id="submit">Bypass Restriction</button>
@@ -139,6 +144,7 @@
     <script>
         const button = document.getElementById("submit");
         const link = document.getElementById("link");
+        const errorBox = document.getElementById("error");
         const howToUseOverlay = document.getElementById("howToUseOverlay");
 
         button.addEventListener("click", function () {
@@ -160,7 +166,7 @@
         if(errorUrl) {
           howToUseOverlay.style.display = "none";
           link.style = "border: 2px solid red;"
-          link.placeholder = errorUrl
+          errorBox.textContent = errorUrl;
         }
     </script>
 </body>
