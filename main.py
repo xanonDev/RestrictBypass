@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 
 
 @app.route('/bypass')
