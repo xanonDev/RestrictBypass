@@ -8,7 +8,7 @@ RestrictBypass is a Python-based website using Flask, designed to bypass restric
 2. Paste the link to the website you want to open into the provided text field (e.g., https://www.youtube.com).
 3. Click on the "Bypass" button.
 
-Alternatively, you can import this repository into your own Replit workspace. [Replit Project Link]((https://replit.com/@xanonDev/RestrictBypass))
+Alternatively, you can import this repository into your own Replit workspace. [Replit Project Link](https://replit.com/@xanonDev/RestrictBypass)
 
 
 ## How it Works
