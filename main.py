@@ -45,6 +45,12 @@ def bypass():
         encodedlink = encodedlink.decode('utf-8')
         encodedlink = f'/bypass?link={encodedlink}'
         a_tag['href'] = encodedlink
+      for iframe_tag in soup.find_all('iframe', src=True):
+        src = iframe_tag['src']
+        encodedlink = base64.b64encode(src.encode('utf-8'))
+        encodedlink = encodedlink.decode('utf-8')
+        encodedlink = f'/bypass?link={encodedlink}'
+        iframe_tag['src'] = encodedlink
       for imgTag in soup.find_all('img', src=True):
         src = imgTag['src']
         encodedlink = base64.b64encode(src.encode('utf-8'))
