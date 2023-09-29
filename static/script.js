@@ -1,7 +1,10 @@
-const button = document.getElementById("submit");
+        const button = document.getElementById("submit");
         const link = document.getElementById("link");
         const errorBox = document.getElementById("error");
         const howToUseOverlay = document.getElementById("howToUseOverlay");
+        if(localStorage.getItem("showAgain") === "No") {
+          howToUseOverlay.style.display = "none";
+        }
 
         button.addEventListener("click", function () {
             data = btoa(link.value);
@@ -16,6 +19,9 @@ const button = document.getElementById("submit");
 
         function closeHowToUseOverlay() {
             howToUseOverlay.style.display = "none";
+            if(document.getElementById("ShowAgain").checked) {
+              localStorage.setItem("showAgain", "No");
+            }
         }
         let url = new URL(window.location.href);
         errorUrl = url.searchParams.get("error");
