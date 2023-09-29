@@ -124,5 +124,9 @@ def imageProxy():
   headers = {'Content-Type': response.headers['Content-Type']}
   return Response(response.content, headers=headers)
 
+@app.errorhandler(404)
+def notFound(e):
+    return redirect(url_for('index', error="error 404 page not found"))
+
 
 app.run(host='0.0.0.0', port=81)
