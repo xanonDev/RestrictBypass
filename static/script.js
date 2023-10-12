@@ -44,25 +44,29 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
   container.classList.add("dark-container");
   link.classList.add("dark-link");
   mode = "dark"
+  localStorage.setItem("mode", "dark");
 } else {
-    themeIcon.src = "https://www.uplooder.net/img/image/55/7aa9993fc291bc170abea048589896cf/sun.svg";
+    themeIcon.src = "/static/images/sun.svg";
     body.classList.remove("dark-body");
     container.classList.remove("dark-container");
     link.classList.remove("dark-link");
     mode = "light"
+    localStorage.setItem("mode", "light");
 }
 themeIcon.addEventListener("click", function () {
   if(mode === "dark") {
-  themeIcon.src = "https://www.uplooder.net/img/image/55/7aa9993fc291bc170abea048589896cf/sun.svg";
+  themeIcon.src = "/static/images/sun.svg";
     body.classList.remove("dark-body");
     container.classList.remove("dark-container");
     link.classList.remove("dark-link");
     mode = "light"
+    localStorage.setItem("mode", "light");
   } else {
-    themeIcon.src = "https://www.uplooder.net/img/image/2/addf703a24a12d030968858e0879b11e/moon.svg";
+    themeIcon.src = "/static/images/moon.svg";
     body.classList.add("dark-body");
     container.classList.add("dark-container");
     link.classList.add("dark-link");
     mode = "dark"
+    localStorage.setItem("mode", "dark");
   }
 });
