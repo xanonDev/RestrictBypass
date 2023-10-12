@@ -9,7 +9,15 @@ RestrictBypass is a Python-based website using Flask, designed to bypass restric
 3. Click on the "Bypass" button.
 
 Alternatively, you can import this repository into your own Replit workspace. [Replit Project Link](https://replit.com/@xanonDev/RestrictBypass)
-
+### How to Host Using Replit
+1. Visit the [replit site](https://replit.com)
+2. login to your account or create it
+3. click Create Repl
+4. click Import from github
+5. paste this repo url
+6. select python in Language
+7. click Import from github
+8. click Run and enjoy
 
 ## How it Works
 
