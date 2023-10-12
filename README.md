@@ -20,9 +20,9 @@ Alternatively, you can import this repository into your own Replit workspace. [R
 8. click Run and enjoy
 
 ## page list
-1. 'Main page (/)' - This is main page of restrict bypass, used to enter links to websites
-2. 'Bypass Request (/bypass?LinkToSiteBase64Encoded)' - This subpage proxies the link provided by the user
-3. 'File Proxer (/fileProxy?url=LinkToFileBase64Encoded)' - This subpage proxies the file like (image, json etc.) provided by the user
+1. `Main page (/)` - This is main page of restrict bypass, used to enter links to websites
+2. `Bypass Request (/bypass?LinkToSiteBase64Encoded)` - This subpage proxies the link provided by the user
+3. `File Proxer (/fileProxy?url=LinkToFileBase64Encoded)` - This subpage proxies the file like (image, json etc.) provided by the user
 
 ## How it Works
 
