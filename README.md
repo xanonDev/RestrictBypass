@@ -1,28 +1,31 @@
 # RestrictBypass
 
-RestrictBypass is a Python-based website using Flask, designed to bypass restrictions such as those imposed by internet providers or parental controls.
+RestrictBypass is a Python-based website using Flask, designed to bypass restrictions imposed by internet providers or parental controls.
 
 ## How to Use
 
-1. Visit the RestrictBypass website: [restrictbypass.xanondev.repl.co](https://restrictbypass.xanondev.repl.co) (google mark official restrict bypass site as risk and phnishing site becasue this is not true)
+1. Visit the RestrictBypass website: [restrictbypass.xanondev.repl.co](https://restrictbypass.xanondev.repl.co) (Please note that some official search engines might mistakenly mark this site as risky or phishing, which is not true.)
 2. Paste the link to the website you want to open into the provided text field (e.g., https://www.youtube.com).
 3. Click on the "Bypass" button.
 
 Alternatively, you can import this repository into your own Replit workspace. [Replit Project Link](https://replit.com/@xanonDev/RestrictBypass)
-### How to Host Using Replit
-1. Visit the [replit site](https://replit.com)
-2. login to your account or create it
-3. click Create Repl
-4. click Import from github
-5. paste this repo url
-6. select python in Language
-7. click Import from github
-8. click Run and enjoy
 
-## page list
-1. `Main page (/)` - This is main page of restrict bypass, used to enter links to websites
-2. `Bypass Request (/bypass?LinkToSiteBase64Encoded)` - This subpage proxies the link provided by the user
-3. `File Proxer (/fileProxy?url=LinkToFileBase64Encoded)` - This subpage proxies the file like (image, json etc.) provided by the user
+## How to Host Using Replit
+
+1. Visit the [Replit site](https://replit.com).
+2. Login to your account or create it.
+3. Click "Create Repl."
+4. Click "Import from GitHub."
+5. Paste this repository URL.
+6. Select Python as the language.
+7. Click "Import from GitHub."
+8. Click "Run" and enjoy.
+
+## Page List
+
+1. **Main Page (/)** - This is the main page of RestrictBypass, used to enter links to websites.
+2. **Bypass Request (/bypass?LinkToSiteBase64Encoded)** - This subpage proxies the link provided by the user.
+3. **File Proxer (/fileProxy?url=LinkToFileBase64Encoded)** - This subpage proxies files like images or JSON provided by the user.
 
 ## How it Works
 
