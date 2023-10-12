@@ -10,17 +10,19 @@ app = Flask(__name__, static_folder="static")
 
 @app.route('/bypass')
 def bypass():
-  headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)       AppleWebKit/537.36 (KHTML, like Gecko) Firefox/100.0'
-  }
   link = request.args.get("link")
   link = base64.b64decode(link).decode('utf-8')
   parsed_url = urlparse(link)
   if parsed_url.scheme == 'http' or parsed_url.scheme == 'https':
-    pass 
+    pass
   else:
     link = f'https://{link}'
   try:
+    headers = {
+        'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64)       AppleWebKit/537.36 (KHTML, like Gecko) Firefox/100.0',
+        'Referer': link
+    }
     raw_content = requests.get(link, headers=headers)
     contentType = raw_content.headers.get('content-type', '').lower()
     if 'text/html' in contentType:
@@ -62,14 +64,14 @@ def bypass():
         scriptCode = requests.get(script['src'], headers=headers)
         del script['src']
         script.string = scriptCode.text
-      styles = soup.find_all('link', rel="stylesheet")
+      styles = soup.find_all('link')
       for style in styles:
         href = style['href']
         encodedlink = base64.b64encode(href.encode('utf-8'))
         encodedlink = encodedlink.decode('utf-8')
         bypassLink = f'/fileProxy?url={encodedlink}'
         style['href'] = bypassLink
-        
+
       content = base64.b64encode(soup.prettify().encode('utf-8'))
       webchanger = '''
           <input id="link"></input>
@@ -113,15 +115,23 @@ def bypass():
       parsed_url = urlparse(link)
       filename = os.path.basename(parsed_url.path)
       response = Response(raw_content.content, content_type=contentType)
-      response.headers['Content-Disposition'] = f'attachment; filename={filename}'
+      response.headers[
+          'Content-Disposition'] = f'attachment; filename={filename}'
       return response
   except Exception as e:
-      return redirect(url_for('index', error=f"{e.__class__.__name__} occurred while trying to proxy, error details in console", errorDet=e))
+    return redirect(
+        url_for(
+            'index',
+            error=
+            f"{e.__class__.__name__} occurred while trying to proxy, error details in console",
+            errorDet=e))
 
 
 @app.route("/")
 def index():
   return render_template('index.html')
+
+
 @app.route("/fileProxy")
 def imageProxy():
   url = request.args.get('url', '')
@@ -130,9 +140,10 @@ def imageProxy():
   headers = {'Content-Type': response.headers['Content-Type']}
   return Response(response.content, headers=headers)
 
+
 @app.errorhandler(404)
 def notFound(e):
-    return redirect(url_for('index', error="error 404 page not found"))
+  return redirect(url_for('index', error="error 404 page not found"))
 
 
 app.run(host='0.0.0.0', port=81)
