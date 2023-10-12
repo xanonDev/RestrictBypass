@@ -4,7 +4,7 @@ RestrictBypass is a Python-based website using Flask, designed to bypass restric
 
 ## How to Use
 
-1. Visit the RestrictBypass website: [restrictbypass.xanondev.repl.co](https://restrictbypass.xanondev.repl.co)
+1. Visit the RestrictBypass website: [restrictbypass.xanondev.repl.co](https://restrictbypass.xanondev.repl.co) (google mark official restrict bypass site as risk and phnishing site becasue this is not true)
 2. Paste the link to the website you want to open into the provided text field (e.g., https://www.youtube.com).
 3. Click on the "Bypass" button.
 
